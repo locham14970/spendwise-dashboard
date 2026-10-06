@@ -1,172 +1,211 @@
-markdown
-# SpendWise Dashboard
+# SpendWise
 
-## Project Description
+## Smart Budgeting for Smarter Spending
 
-SpendWise is a responsive financial dashboard shell created using HTML and CSS. The project demonstrates the use of CSS Grid, Flexbox, CSS custom properties, responsive design, and card micro-interactions.
+SpendWise is a simple budget and expense management platform designed to help users track their spending, manage their budget, and monitor their remaining balance.
 
-## Dashboard Features
+## Improvements Made This Week
 
-The dashboard contains:
+This week, SpendWise was improved by adding JavaScript interactivity to the dashboard.
 
-- Sidebar navigation
-- Header section
-- Six financial category cards
-- Responsive layout
+The application can now:
 
-## Financial Categories
+* Allow users to enter and set a budget.
+* Allow users to add multiple expenses.
+* Store multiple expense records in an array.
+* Calculate total expenses automatically.
+* Calculate the remaining budget automatically.
+* Display expense records directly on the webpage.
+* Provide budget warnings based on the remaining balance.
+* Respond to user actions using buttons and event listeners.
+* Update the dashboard dynamically without refreshing the page.
 
-The dashboard displays static financial information for:
+## JavaScript Concepts Implemented
 
-- Food
-- Transport
-- Rent
-- Entertainment
-- Savings
-- Utilities
+### 1. Conditional Statements
 
-## CSS Grid
+Conditional statements are used to evaluate the user's budgeting situation.
 
-CSS Grid is used to create the overall dashboard layout and organize the financial category cards.
+SpendWise checks the remaining balance and provides different feedback.
 
-## Flexbox
+For example:
 
-Flexbox is used to arrange:
+* If the remaining balance is below zero, the application warns the user that they have exceeded their budget.
+* If the remaining balance is below KSh 5,000, the application warns that the balance is getting low.
+* Otherwise, the application tells the user that they are within their budget.
 
-- Sidebar navigation items
-- Header content
-- Individual dashboard cards
+This is implemented using `if`, `else if`, and `else` statements.
 
-## CSS Custom Properties
+### 2. Arrays
 
-CSS variables are defined in the `:root` selector for:
+An array is used to store multiple expense records.
 
-- Brand color
-- Accent color
-- Surface/background color
-- Primary text color
-- Secondary text color
+   javascript
+let expenses = [];
 
-## Responsive Design
 
-A media query below 768px changes the dashboard into a single-column layout for smaller screens.
+When the user adds an expense, the expense is stored in the array using `push()`.
 
-The responsive layout was tested using the browser's DevTools Device Toolbar.
+Each expense contains:
 
-## Card Micro-interactions
+* Expense name
+* Expense amount
 
-Dashboard cards include hover and focus effects using `transform` and `box-shadow`. The transition lasts 200ms.
+Example:
 
-## Dark Theme
+   javascript
+expenses.push({
+    name: expenseName,
+    amount: expenseAmount
+});
 
-A dark theme is included using the `prefers-color-scheme: dark` media query. The dark theme overrides the CSS custom properties defined in `:root`.
+
+Using an array allows SpendWise to manage multiple expense records instead of using separate variables for every expense.
+
+### 3. Loops
+
+A `forEach()` loop is used to process the expenses stored in the array.
+
+The loop calculates the total amount spent by going through each expense record.
+
+The loop is also used to display all the expense records on the webpage.
+
+Example:
+
+   javascript
+expenses.forEach(function (expense) {
+    totalExpenses += expense.amount;
+});
+
+
+### 4. DOM Manipulation
+
+DOM manipulation is used to update information directly on the webpage.
+
+JavaScript selects HTML elements using `document.getElementById()` and changes their content using `textContent`.
+
+The dashboard is dynamically updated to display:
+
+* Budget
+* Total expenses
+* Remaining balance
+* Budget status
+* Expense records
+
+This means users can see updated information immediately without refreshing the page.
+
+### 5. Events and User Interactions
+
+Event listeners allow the application to respond to user actions.
+
+For example, when the user clicks the **Set Budget** button, JavaScript reads the budget entered by the user and updates the dashboard.
+
+When the user clicks the **Add Expense** button, JavaScript:
+
+1. Gets the expense name.
+2. Gets the expense amount.
+3. Validates the information.
+4. Adds the expense to the array.
+5. Calculates the new total.
+6. Updates the remaining balance.
+7. Displays the expense on the webpage.
+
+This is implemented using `addEventListener()`.
+
+### 6. Data Processing
+
+SpendWise processes the stored expense records to calculate the total expenses.
+
+The remaining balance is calculated using:
+
+    text
+Remaining Balance = Budget - Total Expenses
+
+
+The application then uses the result to provide appropriate budget feedback.
+
+## Challenges Encountered and Solutions
+
+### Challenge 1: Connecting JavaScript to HTML
+
+One challenge was connecting JavaScript to the correct HTML elements.
+
+This was solved by using `document.getElementById()` to select the required elements.
+
+### Challenge 2: Managing Multiple Expenses
+
+Another challenge was managing several expense records.
+
+This was solved by using an array to store the expenses and a `forEach()` loop to process each record.
+
+### Challenge 3: Updating the Dashboard
+
+The dashboard initially displayed static information.
+
+This was improved by using DOM manipulation so that the budget, total expenses, remaining balance, budget status, and expense records update automatically when the user interacts with the application.
+
+### Challenge 4: Validating User Input
+
+The application checks that the user enters valid budget and expense values.
+
+Invalid or empty values are rejected and an appropriate message is displayed.
 
 ## Technologies Used
 
-- HTML5
-- CSS3
-- CSS Grid
-- Flexbox
-- CSS Custom Properties
-- Responsive Design
-- Git and GitHub
+* HTML
+* CSS
+* JavaScript
+* Git
+* GitHub
 
-## JavaScript Foundation
+## Project Structure
 
-### What SpendWise Does
-
-SpendWise is a simple budget and expense management platform designed to help users track their budget, record expenses, and understand their remaining balance.
-
-### JavaScript Concepts Implemented
-
-The SpendWise project uses JavaScript to make the application interactive and process budgeting data. The main JavaScript concepts implemented are:
-
-* Variables
-* Data types
-* User input
-* Calculations
-* Functions
-* Conditional statements
-* Input validation
-* Console output
-
-### Variables
-
-Variables are used to store important budgeting information.
-
-For example:
-
-javascript
-let budget = Number(prompt("Enter your budget:"));
-let expenses = Number(prompt("Enter your total expenses:"));
+   text
+SpendWise/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 
 
-The `budget` variable stores the user's budget, while the `expenses` variable stores the user's total expenses.
+## How to Run the Project
 
-### User Input
+1. Open the project in Visual Studio Code.
+2. Open `index.html` with Live Server.
+3. Enter a budget.
+4. Click **Set Budget**.
+5. Enter an expense name and amount.
+6. Click **Add Expense**.
+7. View the updated dashboard, budget status, and expense records.
 
-SpendWise collects information from the user using the JavaScript `prompt()` function.
+## Expected Application Flow
 
-```javascript
-let budget = Number(prompt("Enter your budget:"));
-let expenses = Number(prompt("Enter your total expenses:"));
-```
-
-The `Number()` function converts the input from text into numbers so that mathematical calculations can be performed.
-
-### Calculations
-
-SpendWise calculates the user's remaining balance by subtracting expenses from the budget.
-
-```javascript
-let remainingBalance = calculateBalance(budget, expenses);
-
-
-The calculation follows this formula:
-
-**Remaining Balance = Budget - Expenses**
-
-For example, if the budget is 50,000 and expenses are 12,000, the remaining balance is 38,000.
-
-### Functions
-
-A reusable function is used to calculate the remaining balance.
-
-javascript
-function calculateBalance(budget, expenses) {
-    return budget - expenses;
-}
-
-
-Functions help organize the code and allow the same calculation to be reused with different budget and expense values.
-
-### Input Validation
-
-SpendWise checks whether the user entered valid numbers.
-
-javascript
-if (isNaN(budget) || isNaN(expenses)) {
-    console.log("Please enter valid numbers for your budget and expenses.");
-}
+```text
+User enters budget
+        ↓
+Clicks Set Budget
+        ↓
+Budget is displayed
+        ↓
+User enters expense
+        ↓
+Clicks Add Expense
+        ↓
+Expense is stored in an array
+        ↓
+Loop processes expense records
+        ↓
+Total expenses are calculated
+        ↓
+Remaining balance is calculated
+        ↓
+Conditional statement evaluates the balance
+        ↓
+DOM updates the dashboard
 
 
-This prevents invalid input from being used in the budgeting calculation.
+## Author
 
-### Displaying Results
-
-The calculated information is displayed in the browser console using `console.log()`.
-
-The application displays:
-
-* Budget
-* Expenses
-* Remaining Balance
-
-For example:
-
-text
-Budget: 50000
-Expenses: 12000
-Remaining Balance: 38000
-
+Simon Locham
 

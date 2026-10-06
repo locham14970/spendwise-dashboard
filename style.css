@@ -195,4 +195,88 @@ body {
         --border-color: #334155;
     }
 }
-```
+
+/* Interactive Budget Section */
+
+.interactive-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 12px;
+}
+
+.interactive-section h2 {
+    margin-bottom: 20px;
+}
+
+.budget-form,
+.expense-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.budget-form input,
+.expense-form input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    flex: 1;
+}
+
+.budget-form button,
+.expense-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #2c3e50;
+    color: white;
+}
+
+.budget-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    padding: 20px;
+    background: #f5f7fa;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.summary-card h3 {
+    margin-bottom: 10px;
+}
+
+.summary-card p {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.budget-status {
+    padding: 15px;
+    margin: 20px 0;
+    background: #f5f7fa;
+    border-radius: 8px;
+}
+
+.expense-records {
+    margin-top: 25px;
+}
+
+#expense-list {
+    list-style: none;
+    padding: 0;
+}
+
+#expense-list li {
+    padding: 12px;
+    margin-bottom: 8px;
+    background: #f5f7fa;
+    border-radius: 6px;
+    border-left: 4px solid #2c3e50;
+}

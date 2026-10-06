@@ -82,6 +82,75 @@
                 </article>
 
             </section>
+            
+                        <!-- Interactive Budget Section -->
+            <section class="interactive-section">
+
+                <h2>Manage Your Budget</h2>
+
+                <div class="budget-form">
+                    <input
+                        type="number"
+                        id="budget-input"
+                        placeholder="Enter your budget"
+                    >
+
+                    <button id="set-budget-btn">
+                        Set Budget
+                    </button>
+                </div>
+
+                <div class="budget-summary">
+                    <div class="summary-card">
+                        <h3>Budget</h3>
+                        <p id="budget-display">KSh 0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Total Expenses</h3>
+                        <p id="total-expenses">KSh 0</p>
+                    </div>
+
+                    <div class="summary-card">
+                        <h3>Remaining Balance</h3>
+                        <p id="remaining-balance">KSh 0</p>
+                    </div>
+                </div>
+
+                <h2>Add Expense</h2>
+
+                <div class="expense-form">
+                    <input
+                        type="text"
+                        id="expense-name"
+                        placeholder="Expense name"
+                    >
+
+                    <input
+                        type="number"
+                        id="expense-amount"
+                        placeholder="Expense amount"
+                    >
+
+                    <button id="add-expense-btn">
+                        Add Expense
+                    </button>
+                </div>
+
+                <div class="budget-status">
+                    <h3>Budget Status</h3>
+                    <p id="budget-message">
+                        Set your budget and add expenses.
+                    </p>
+                </div>
+
+                <div class="expense-records">
+                    <h3>Expense Records</h3>
+                    <ul id="expense-list">
+                    </ul>
+                </div>
+
+            </section>
 
         </main>
 
