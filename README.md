@@ -2,210 +2,191 @@
 
 ## Smart Budgeting for Smarter Spending
 
-SpendWise is a simple budget and expense management platform designed to help users track their spending, manage their budget, and monitor their remaining balance.
+SpendWise is a simple budget and expense management platform designed to help users track their spending, manage their budgets, monitor expenses, and calculate their remaining balance.
 
-## Improvements Made This Week
+## Live Application
 
-This week, SpendWise was improved by adding JavaScript interactivity to the dashboard.
+- **Live Website:** https://spendwise-budget-simon.netlify.app
+- **GitHub Repository:** https://github.com/locham14970/spendwise-dashboard
+- **Deployment Platform:** Netlify
+- **Repository Visibility:** Public
+- **Website Visibility:** Public
 
-The application can now:
+## Features and Improvements
 
-* Allow users to enter and set a budget.
-* Allow users to add multiple expenses.
-* Store multiple expense records in an array.
-* Calculate total expenses automatically.
-* Calculate the remaining budget automatically.
-* Display expense records directly on the webpage.
-* Provide budget warnings based on the remaining balance.
-* Respond to user actions using buttons and event listeners.
-* Update the dashboard dynamically without refreshing the page.
+SpendWise includes the following features:
+
+- Allows users to enter and set a budget.
+- Allows users to add multiple expenses.
+- Stores multiple expense records in a JavaScript array.
+- Calculates total expenses automatically.
+- Calculates the remaining budget automatically.
+- Displays expense records directly on the webpage.
+- Provides budget warnings based on the remaining balance.
+- Responds to user actions using buttons and event listeners.
+- Updates the dashboard dynamically without refreshing the page.
 
 ## JavaScript Concepts Implemented
 
 ### 1. Conditional Statements
 
-Conditional statements are used to evaluate the user's budgeting situation.
+Conditional statements evaluate the user's budgeting situation.
 
-SpendWise checks the remaining balance and provides different feedback.
+- If the remaining balance is below zero, the application warns the user that they have exceeded their budget.
+- If the remaining balance is below KSh 5,000, the application warns that the balance is getting low.
+- Otherwise, the application informs the user that they are within their budget.
 
-For example:
-
-* If the remaining balance is below zero, the application warns the user that they have exceeded their budget.
-* If the remaining balance is below KSh 5,000, the application warns that the balance is getting low.
-* Otherwise, the application tells the user that they are within their budget.
-
-This is implemented using `if`, `else if`, and `else` statements.
+Implemented using `if`, `else if`, and `else` statements.
 
 ### 2. Arrays
 
-An array is used to store multiple expense records.
+An array stores multiple expense records.
 
-   javascript
+```javascript
 let expenses = [];
+```
 
+When the user adds an expense, it is stored using `push()`.
 
-When the user adds an expense, the expense is stored in the array using `push()`.
-
-Each expense contains:
-
-* Expense name
-* Expense amount
-
-Example:
-
-   javascript
-expenses.push({
-    name: expenseName,
-    amount: expenseAmount
-});
-
-
-Using an array allows SpendWise to manage multiple expense records instead of using separate variables for every expense.
+Each expense contains an expense name and amount.
 
 ### 3. Loops
 
-A `forEach()` loop is used to process the expenses stored in the array.
+A `forEach()` loop processes the expenses stored in the array.
 
-The loop calculates the total amount spent by going through each expense record.
+It calculates total expenses and displays individual expense records on the webpage.
 
-The loop is also used to display all the expense records on the webpage.
+### 4. Document Object Model (DOM) Manipulation
 
-Example:
+DOM manipulation allows JavaScript to update webpage content.
 
-   javascript
-expenses.forEach(function (expense) {
-    totalExpenses += expense.amount;
-});
+The application uses `document.getElementById()` and `textContent` to update:
 
-
-### 4. DOM Manipulation
-
-DOM manipulation is used to update information directly on the webpage.
-
-JavaScript selects HTML elements using `document.getElementById()` and changes their content using `textContent`.
-
-The dashboard is dynamically updated to display:
-
-* Budget
-* Total expenses
-* Remaining balance
-* Budget status
-* Expense records
-
-This means users can see updated information immediately without refreshing the page.
+- Budget
+- Total expenses
+- Remaining balance
+- Budget status
+- Expense records
 
 ### 5. Events and User Interactions
 
 Event listeners allow the application to respond to user actions.
 
-For example, when the user clicks the **Set Budget** button, JavaScript reads the budget entered by the user and updates the dashboard.
+When a user clicks the Set Budget button, the application reads the entered budget and updates the dashboard.
 
-When the user clicks the **Add Expense** button, JavaScript:
+When a user clicks the Add Expense button, the application:
 
 1. Gets the expense name.
 2. Gets the expense amount.
 3. Validates the information.
 4. Adds the expense to the array.
-5. Calculates the new total.
+5. Calculates total expenses.
 6. Updates the remaining balance.
-7. Displays the expense on the webpage.
+7. Displays the expense record.
 
-This is implemented using `addEventListener()`.
+Implemented using `addEventListener()`.
 
 ### 6. Data Processing
 
-SpendWise processes the stored expense records to calculate the total expenses.
-
 The remaining balance is calculated using:
 
-    text
-Remaining Balance = Budget - Total Expenses
+**Remaining Balance = Budget - Total Expenses**
 
+The application uses the calculated result to provide appropriate budget feedback.
 
-The application then uses the result to provide appropriate budget feedback.
+## Technologies Used
+
+- HTML – webpage structure.
+- CSS – webpage styling and layout.
+- JavaScript – application functionality and interactivity.
+- Git – version control.
+- GitHub – source code hosting.
+- Netlify – website hosting and deployment.
+
+## Project Structure
+
+```text
+SPENDWISE-DASHBOARD/
+│
+├── index.html
+├── style.css
+├── script.js
+├── README.md
+└── js/
+```
+
+## How to Run the Project Locally
+
+1. Clone or download the GitHub repository.
+2. Open the project folder in Visual Studio Code.
+3. Open `index.html` using Live Server.
+4. Enter a budget.
+5. Click **Set Budget**.
+6. Enter an expense name and amount.
+7. Click **Add Expense**.
+8. View the updated dashboard and expense records.
+
+## Deployment Summary
+
+SpendWise was deployed using Netlify and connected to its GitHub repository.
+
+The deployment process involved:
+
+1. Creating and maintaining a public GitHub repository.
+2. Deploying the project to Netlify.
+3. Configuring the production website visibility as Public.
+4. Setting a custom Netlify project name.
+5. Connecting the GitHub repository to Netlify.
+6. Configuring the publish directory to use the repository root.
+7. Deploying the HTML, CSS, and JavaScript files.
+8. Testing the live website in a browser, including an Incognito window.
+9. Updating the project heading and pushing the changes to GitHub.
+
+The live website successfully displays the updated dashboard content.
 
 ## Challenges Encountered and Solutions
 
 ### Challenge 1: Connecting JavaScript to HTML
 
-One challenge was connecting JavaScript to the correct HTML elements.
+**Challenge:** Connecting JavaScript to the correct HTML elements.
 
-This was solved by using `document.getElementById()` to select the required elements.
+**Solution:** Used `document.getElementById()` to select the required elements.
 
 ### Challenge 2: Managing Multiple Expenses
 
-Another challenge was managing several expense records.
+**Challenge:** Managing several expense records.
 
-This was solved by using an array to store the expenses and a `forEach()` loop to process each record.
+**Solution:** Used arrays to store expense records and `forEach()` to process them.
 
 ### Challenge 3: Updating the Dashboard
 
-The dashboard initially displayed static information.
+**Challenge:** The dashboard initially displayed static information.
 
-This was improved by using DOM manipulation so that the budget, total expenses, remaining balance, budget status, and expense records update automatically when the user interacts with the application.
+**Solution:** Used DOM manipulation to update budget information and expense records dynamically.
 
-### Challenge 4: Validating User Input
+### Challenge 4: Deploying the Website
 
-The application checks that the user enters valid budget and expense values.
+**Challenge:** Configuring Netlify and connecting the website to the GitHub repository.
 
-Invalid or empty values are rejected and an appropriate message is displayed.
+**Solution:** Configured public production visibility, linked the GitHub repository, and deployed the project through Netlify.
 
-## Technologies Used
+## Lessons Learned
 
-* HTML
-* CSS
-* JavaScript
-* Git
-* GitHub
+Through this project, I learned how to:
 
-## Project Structure
-
-   text
-SpendWise/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-
-
-## How to Run the Project
-
-1. Open the project in Visual Studio Code.
-2. Open `index.html` with Live Server.
-3. Enter a budget.
-4. Click **Set Budget**.
-5. Enter an expense name and amount.
-6. Click **Add Expense**.
-7. View the updated dashboard, budget status, and expense records.
-
-## Expected Application Flow
-
-```text
-User enters budget
-        ↓
-Clicks Set Budget
-        ↓
-Budget is displayed
-        ↓
-User enters expense
-        ↓
-Clicks Add Expense
-        ↓
-Expense is stored in an array
-        ↓
-Loop processes expense records
-        ↓
-Total expenses are calculated
-        ↓
-Remaining balance is calculated
-        ↓
-Conditional statement evaluates the balance
-        ↓
-DOM updates the dashboard
-
+- Structure webpages using HTML.
+- Style webpages using CSS.
+- Use JavaScript to create interactive applications.
+- Work with arrays, loops, and conditional statements.
+- Manipulate the Document Object Model.
+- Use Git for version control.
+- Push project updates to GitHub.
+- Deploy websites using Netlify.
+- Configure public website visibility.
+- Understand how GitHub integration supports automatic deployment.
 
 ## Author
 
-Simon Locham
+**Simon Locham**
 
+Project: SpendWise – Smart Budgeting for Smarter Spending.
